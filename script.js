@@ -4,7 +4,7 @@ const listaJogadores = [
   { nome: "Enzo", vitorias: 0, empates: 0, derrotas: 0, pontos: 0 },
 ]
 
-const tabelaJogadores = document.getElementById("tabelaJogadores");
+const tabelaJogadores = document.getElementById("tabela-jogadores");
 
 function exibirNaTela() {
   // limpar a tabela para não duplicar (antes do loop pra n limpar cada linha)
@@ -17,9 +17,10 @@ function exibirNaTela() {
   <td>${listaJogadores[i].empates}</td>
   <td>${listaJogadores[i].derrotas}</td>
   <td>${listaJogadores[i].pontos}</td>
-  <td><button onClick="adicionarVitoria(${i})">Vitória</button></td>
-  <td><button onClick="adicionarEmpate(${i})">Empate</button></td>
-  <td><button onClick="adicionarDerrota(${i})">Derrota</button></td>
+  <td><button class="botao-tabela" onClick="adicionarVitoria(${i})">Vitória</button></td>
+  <td><button class="botao-tabela" onClick="adicionarEmpate(${i})">Empate</button></td>
+  <td><button class="botao-tabela" onClick="adicionarDerrota(${i})">Derrota</button></td>
+  <td><button class="icon botao-excluir"></button></td>
   </tr>
     `;
     // ${i} passa a referência apenas do índice (que será usado na declaração das funções abaixo). Usar ${array[i]} iria passar o objeto inteiro.

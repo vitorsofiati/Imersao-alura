@@ -9,36 +9,40 @@
 </head>
 
 <body>
-
-  <html>
-
-  <head>
-    <title>
-      Imersão Dev
-    </title>
-  </head>
-
-  <body>
+  <header>
     <h1>Classificação Alura</h1>
-
-    <table style="width:100%">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Vitórias</th>
-          <th>Empates</th>
-          <th>Derrotas</th>
-          <th>Pontos</th>
-          <th colspan="3">Ações</th>
-        </tr>
-      </thead>
-      <tbody id="tabelaJogadores"> </tbody>
-    </table>
-  </body>
-
-  </html>
-
-  <script src="./script.js"></script>
+  </header>
+  <main>
+    <div class="container">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Vitórias</th>
+            <th>Empates</th>
+            <th>Derrotas</th>
+            <th>Pontos</th>
+            <th colspan="4">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-jogadores"> </tbody>
+      </table>
+      <div class="tabela-comandos">
+        <button class="botao-global"> Novo jogador</button>
+        <button class="botao-global"> zerar pontos</button>
+        <button class="botao-global"> Redefinir</button>
+        <div class="novo-jogador">
+          <span> Nome:</span>
+          <div>
+            <label for=""></label>
+            <input class="input-jogador" type="text" id="nome" name="nome" placeholder="Digite o nome do jogador">
+          </div>
+          <button class="icon botao-ok"></button>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </main>
 </body>
 
 </html>

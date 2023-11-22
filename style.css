@@ -1,51 +1,33 @@
-* {
-  text-align: center;
-}
-
 body {
   font-family: "Roboto Mono", monospace;
+  font-size: 1rem;
   min-height: 400px;
   background-image: url("https://www.alura.com.br/assets/img/imersoes/dev-2021/tabela-classificacao-bg.png");
   background-color: #111;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.container {
+h1 {
+  color: white;
   text-align: center;
-  padding: 20px;
-  height: 100vh;
+  margin-top: 80px;
 }
 
-.page-title {
-  color: #ffffff;
-  margin: 0 0 5px;
+
+.container {
+  max-width: 1000px;
+  margin: 80px auto;
+  display: grid;
+  align-items: end;
 }
 
-.page-subtitle {
-  color: #ffffff;
-  margin-top: 5px;
-}
-
-.page-logo {
-  width: 200px;
-}
-
-.alura-logo {
-  width: 40px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
 
 table {
   border: 2px solid white;
   border-collapse: collapse;
-}
-
-h1 {
-  color: white;
+  text-align: center;
 }
 
 th,
@@ -53,9 +35,91 @@ tr,
 td {
   border: solid 1px white;
   color: white;
+  padding: 8px 4px;
 }
 
-button {
+thead th {
   background-color: #002351;
+  padding: 2px 8px;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+
+button {
+  display: inline;
+  border: solid 1px transparent;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  padding: 4px 8px;
+
+}
+
+.botao-tabela {
   color: #f6f6f6;
+  border-color: #f6f6f6;
+  background-color: #002351;
+  padding: 2px 12px;
+}
+
+.tabela-comandos {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  justify-content: end;
+  gap: 8px;
+}
+
+.botao-tabela:hover {
+  background-color: #004299;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.botao-excluir {
+  background-image: url(./img/lixeira.svg);
+}
+
+.botao-global {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-right: 0;
+  color: #002351;
+  background-color: #d1d1d1;
+  border: 3px solid #002351;
+}
+
+.botao-global:hover {
+  background-color: #f6f6f6;
+  border-color: #0056c7;
+}
+
+.novo-jogador {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  justify-self: right;
+  align-items: center;
+}
+
+.novo-jogador span {
+  color: #f6f6f6;
+  font-size: 1.5rem;
+}
+
+.input-jogador {
+  width: 250px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.botao-ok {
+  background-image: url(./img/seta.png);
 }
