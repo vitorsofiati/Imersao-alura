@@ -54,7 +54,6 @@ button {
   border-radius: 4px;
   font-size: 1.2rem;
   padding: 4px 8px;
-
 }
 
 .botao-tabela {
@@ -125,7 +124,6 @@ button {
 
 .botao-ok {
   background-image: url(./img/seta.png);
-  scale: 1.4;
 }
 
 .escondido {
