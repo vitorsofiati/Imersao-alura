@@ -1,15 +1,14 @@
-const listaJogadores = [
-  { nome: "Paulo", vitorias: 0, empates: 0, derrotas: 0, pontos: 0 },
+let listaJogadores = [
   { nome: "Valentina", vitorias: 0, empates: 0, derrotas: 0, pontos: 0 },
-  { nome: "Enzo", vitorias: 0, empates: 0, derrotas: 0, pontos: 0 },
-]
-
-const tabelaJogadores = document.getElementById("tabela-jogadores");
+  { nome: "Enzo", vitorias: 0, empates: 0, derrotas: 0, pontos: 0 },]
 const botaoNovoJogador = document.getElementById("botao-novo-jogador");
-const inputNovoJogador = document.querySelector(".novo-jogador");
 const submitNovoJogador = document.querySelector(".novo-jogador button");
+const botaoZerar = document.getElementById("botao-zerar");
+const botaoRedefinir = document.getElementById("botao-redefinir");
+const tabelaJogadores = document.getElementById("tabela-jogadores");
 
-function exibirNaTela() {
+
+function atualizarTabela() {
   // limpar a tabela para não duplicar (antes do loop pra n limpar cada linha)
   tabelaJogadores.innerHTML = "";
   for (let i = 0; i < listaJogadores.length; i++) {
@@ -26,27 +25,29 @@ function exibirNaTela() {
   <td><button class="icon botao-excluir"></button></td>
   </tr>
     `;
-    // ${i} passa a referência apenas do índice (que será usado na declaração das funções abaixo). Usar ${array[i]} iria passar o objeto inteiro.
+    // ${i} acima passa a referência apenas do índice (que será usado na declaração das funções abaixo). Usar ${array[i]} iria passar o objeto inteiro.
   }
 }
 
 function adicionarVitoria(index) {
   listaJogadores[index].vitorias++;
   listaJogadores[index].pontos += 3;
-  exibirNaTela();
+  atualizarTabela();
 };
 
 function adicionarEmpate(index) {
   listaJogadores[index].empates++;
   listaJogadores[index].pontos++;
-  exibirNaTela();
+  atualizarTabela();
 };
 function adicionarDerrota(index) {
   listaJogadores[index].derrotas++;
-  exibirNaTela();
+  atualizarTabela();
 };
 
+// toggle para o campo de input
 function esconder() {
+  const inputNovoJogador = document.querySelector(".novo-jogador");
   inputNovoJogador.classList.toggle("escondido");
 }
 
@@ -60,22 +61,42 @@ function inserirJogador() {
   if (input.trim() !== "" && regexLetras.test(input)) {
     listaJogadores.push({ nome: input, vitorias: 0, empates: 0, derrotas: 0, pontos: 0 });
     document.getElementById("nome").value = "";
-    exibirNaTela();
-    // .textContent altera apenas o texto, sem interpretar tags HTML. é melhor por desempenho e compatibilidade.
+    atualizarTabela();
+    // .textContent altera apenas o texto, sem interpretar tags HTML.Nesse caso é melhor por desempenho e compatibilidade.
     mensagemErro.textContent = ""
   } else {
     mensagemErro.textContent = "Por favor, insira um nome válido!";
   }
 }
 
+// input de novo jogador através da tecla enter também.
 function teclaEnter(event) {
   if (event.key === "Enter") {
     inserirJogador();
   }
 }
 
-exibirNaTela();
+function zerarPontos() {
+  for (let i = 0; i < listaJogadores.length; i++) {
+    listaJogadores[i].vitorias = 0;
+    listaJogadores[i].empates = 0;
+    listaJogadores[i].derrotas = 0;
+    listaJogadores[i].pontos = 0;
+  }
+  atualizarTabela();
+}
 
+// apaga todos os dados da array e atualiza o conteúdo da tabela
+function redefinirTabela() {
+  listaJogadores = [];
+  tabelaJogadores.innerHTML = "";
+}
+
+atualizarTabela();
+
+
+// botoes
 botaoNovoJogador.addEventListener("click", esconder);
 submitNovoJogador.addEventListener("click", inserirJogador);
-
+botaoZerar.addEventListener("click", zerarPontos);
+botaoRedefinir.addEventListener("click", redefinirTabela)

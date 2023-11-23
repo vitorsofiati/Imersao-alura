@@ -37,12 +37,13 @@ td {
   border: solid 1px white;
   color: white;
   padding: 8px 4px;
+  font-size: 1.25rem;
 }
 
 thead th {
   background-color: #002351;
   padding: 2px 8px;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
