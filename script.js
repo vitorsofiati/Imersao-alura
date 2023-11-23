@@ -5,6 +5,9 @@ const listaJogadores = [
 ]
 
 const tabelaJogadores = document.getElementById("tabela-jogadores");
+const botaoNovoJogador = document.getElementById("botao-novo-jogador");
+const inputNovoJogador = document.querySelector(".novo-jogador");
+const submitNovoJogador = document.querySelector(".novo-jogador button");
 
 function exibirNaTela() {
   // limpar a tabela para não duplicar (antes do loop pra n limpar cada linha)
@@ -27,9 +30,6 @@ function exibirNaTela() {
   }
 }
 
-exibirNaTela();
-
-
 function adicionarVitoria(index) {
   listaJogadores[index].vitorias++;
   listaJogadores[index].pontos += 3;
@@ -45,3 +45,37 @@ function adicionarDerrota(index) {
   listaJogadores[index].derrotas++;
   exibirNaTela();
 };
+
+function esconder() {
+  inputNovoJogador.classList.toggle("escondido");
+}
+
+function inserirJogador() {
+  let input = document.getElementById("nome").value;
+  let mensagemErro = document.querySelector(".mensagem-erro");
+  let regexLetras = /^[a-zA-Z\s]+$/;
+
+  // variavel.trim() remove os espaços em branco do início e final da string. Pega apenas o conteúdo real dela para fazer a comparação. Nesse caso, seria vazio (independente de quantos espaços tiverem em volta)
+  // .test é uma função embutida (e exclusiva) para expressões regulares. Nesse caso vai testar se INPUT corresponde ao regex criado acima. Retorna um valor Booleano.
+  if (input.trim() !== "" && regexLetras.test(input)) {
+    listaJogadores.push({ nome: input, vitorias: 0, empates: 0, derrotas: 0, pontos: 0 });
+    document.getElementById("nome").value = "";
+    exibirNaTela();
+    // .textContent altera apenas o texto, sem interpretar tags HTML. é melhor por desempenho e compatibilidade.
+    mensagemErro.textContent = ""
+  } else {
+    mensagemErro.textContent = "Por favor, insira um nome válido!";
+  }
+}
+
+function teclaEnter(event) {
+  if (event.key === "Enter") {
+    inserirJogador();
+  }
+}
+
+exibirNaTela();
+
+botaoNovoJogador.addEventListener("click", esconder);
+submitNovoJogador.addEventListener("click", inserirJogador);
+

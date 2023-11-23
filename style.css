@@ -9,6 +9,7 @@ body {
   background-repeat: no-repeat;
 }
 
+
 h1 {
   color: white;
   text-align: center;
@@ -104,22 +105,38 @@ button {
   grid-column: 1/-1;
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 8px;
+  gap: 10px;
   justify-self: right;
   align-items: center;
 }
 
-.novo-jogador span {
+.novo-jogador>span {
   color: #f6f6f6;
   font-size: 1.5rem;
 }
 
 .input-jogador {
   width: 250px;
-  font-size: 1rem;
+  height: 25px;
+  font-size: 1.25rem;
   text-align: center;
 }
 
 .botao-ok {
   background-image: url(./img/seta.png);
+  scale: 1.4;
+}
+
+.escondido {
+  display: none
+}
+
+.novo-jogador .mensagem-erro {
+  grid-column: 1/-1;
+  justify-self: right;
+  font-size: 1rem;
+  color: #a00;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+  padding: 0 8px;
 }
