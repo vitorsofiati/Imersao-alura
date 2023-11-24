@@ -1,13 +1,12 @@
-let listaJogadores = [
-  { nome: "Valentina", vitorias: 0, empates: 0, derrotas: 0, pontos: 0 },
-  { nome: "Enzo", vitorias: 0, empates: 0, derrotas: 0, pontos: 0 },
-]
-
 const botaoNovoJogador = document.getElementById("botao-novo-jogador");
 const submitNovoJogador = document.querySelector(".novo-jogador button");
 const botaoZerar = document.getElementById("botao-zerar");
 const botaoRedefinir = document.getElementById("botao-redefinir");
 const tabelaJogadores = document.getElementById("tabela-jogadores");
+let listaJogadores = [
+  { nome: "Valentina", vitorias: 0, empates: 0, derrotas: 0, pontos: 0 },
+  { nome: "Enzo", vitorias: 0, empates: 0, derrotas: 0, pontos: 0 },
+]
 
 
 function atualizarTabela() {
@@ -21,10 +20,10 @@ function atualizarTabela() {
   <td>${listaJogadores[i].empates}</td>
   <td>${listaJogadores[i].derrotas}</td>
   <td>${listaJogadores[i].pontos}</td>
-  <td><button class="botao-tabela" onClick="adicionarVitoria(${i})">Vitória</button></td>
-  <td><button class="botao-tabela" onClick="adicionarEmpate(${i})">Empate</button></td>
-  <td><button class="botao-tabela" onClick="adicionarDerrota(${i})">Derrota</button></td>
-  <td><button class="icon botao-excluir" onClick="excluirJogador(${i})"></button></td>
+  <td><button class="botao-tabela" id="botao-vitoria" onClick="adicionarVitoria(${i})">Vitória</button></td>
+  <td><button class="botao-tabela" id="botao-empate" onClick="adicionarEmpate(${i})">Empate</button></td>
+  <td><button class="botao-tabela" id="botao-derrota" onClick="adicionarDerrota(${i})">Derrota</button></td>
+  <td><button class="icon botao-excluir" title="enviar" onClick="excluirJogador(${i})"></button></td>
   </tr>
     `;
     // ${i} acima passa a referência apenas do índice (que será usado na declaração das funções abaixo). Usar ${array[i]} iria passar o objeto inteiro.
@@ -66,9 +65,9 @@ function esconder() {
 function inserirJogador() {
   let input = document.getElementById("nome").value;
   let mensagemErro = document.querySelector(".mensagem-erro");
-  let regexLetras = /^[a-zA-Z\s]+$/;
+  let regexLetras = /^[a-zA-Z\s\u00C0-\u017F]+$/;
 
-  // variavel.trim() remove os espaços em branco do início e final da string. Pega apenas o conteúdo real dela para fazer a comparação. Nesse caso, seria vazio (independente de quantos espaços tiverem em volta)
+  // elemento.trim() remove os espaços em branco do início e final da string. Pega apenas o conteúdo real dela para fazer a comparação. Nesse caso, seria vazio (independente de quantos espaços tiverem em volta)
   // .test é uma função embutida (e exclusiva) para expressões regulares. Nesse caso vai testar se INPUT corresponde ao regex criado acima. Retorna um valor Booleano.
   if (input.trim() !== "" && regexLetras.test(input)) {
     listaJogadores.push({ nome: input, vitorias: 0, empates: 0, derrotas: 0, pontos: 0 });

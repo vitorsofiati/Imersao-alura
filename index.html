@@ -18,7 +18,7 @@
         <thead>
           <tr>
             <th>Nome</th>
-            <th>Vitórias</th>
+            <th id="tabela-vitorias">Vitórias</th>
             <th>Empates</th>
             <th>Derrotas</th>
             <th>Pontos</th>
@@ -32,12 +32,11 @@
         <button class="botao-global" id="botao-zerar"> Zerar Pontos</button>
         <button class="botao-global" id="botao-redefinir"> Redefinir Tabela</button>
         <div class="novo-jogador escondido">
-          <span> Nome:</span>
           <div>
-            <label for=""></label>
+            <label for="nome">Nome:</label>
             <input class="input-jogador" type="text" id="nome" name="nome" onkeydown="teclaEnter(event)" placeholder="Digite o nome do jogador">
           </div>
-          <button class="icon botao-ok"></button>
+          <button class="icon botao-ok" title="Enviar"></button>
           <span class="mensagem-erro"></span>
         </div>
       </div>

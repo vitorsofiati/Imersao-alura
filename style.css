@@ -1,7 +1,8 @@
 body {
+  margin: 0;
   font-family: "Roboto Mono", monospace;
   font-size: 1rem;
-  min-height: 400px;
+  height: 100vh;
   background-image: url("https://www.alura.com.br/assets/img/imersoes/dev-2021/tabela-classificacao-bg.png");
   background-color: #111;
   background-size: cover;
@@ -20,8 +21,9 @@ h1 {
 .container {
   max-width: 1000px;
   margin: 80px auto;
+  padding: 20px;
   display: grid;
-  align-items: end;
+  overflow-x: auto;
 }
 
 
@@ -36,15 +38,13 @@ tr,
 td {
   border: solid 1px white;
   color: white;
-  padding: 8px 4px;
+  padding: 8px 2px;
   font-size: 1.25rem;
 }
 
 thead th {
   background-color: #002351;
-  padding: 2px 8px;
   font-size: 1.5rem;
-  font-weight: bold;
 }
 
 
@@ -54,13 +54,13 @@ button {
   border-radius: 4px;
   font-size: 1.2rem;
   padding: 4px 8px;
+  cursor: pointer;
 }
 
 .botao-tabela {
   color: #f6f6f6;
   border-color: #f6f6f6;
   background-color: #002351;
-  padding: 2px 12px;
 }
 
 .tabela-comandos {
@@ -80,15 +80,14 @@ button {
   width: 20px;
   background-color: transparent;
   background-size: contain;
-  cursor: pointer;
 }
 
 .botao-excluir {
-  background-image: url(./img/lixeira.svg);
+  background-image: url("./img/lixeira.svg");
+  background-repeat: no-repeat;
 }
 
 .botao-global {
-  font-size: 1.25rem;
   font-weight: bold;
   margin-right: 0;
   color: #002351;
@@ -110,7 +109,7 @@ button {
   align-items: center;
 }
 
-.novo-jogador>span {
+.novo-jogador label {
   color: #f6f6f6;
   font-size: 1.5rem;
 }
@@ -123,7 +122,11 @@ button {
 }
 
 .botao-ok {
-  background-image: url(./img/seta.png);
+  background-image: url("./img/seta.png");
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+
 }
 
 .escondido {
@@ -138,4 +141,29 @@ button {
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 4px;
   padding: 0 8px;
+}
+
+@media (max-width:900px) {
+
+  .container {
+    padding: 10px 2px;
+  }
+
+  th,
+  tr,
+  td {
+    padding: 4px 3px;
+    font-size: 0.75rem;
+  }
+
+  thead th {
+    background-color: #002351;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  button {
+    font-size: 0.75rem;
+    padding: 10px 4px;
+  }
 }
