@@ -1,36 +1,35 @@
 body {
-  margin: 0;
   font-family: "Roboto Mono", monospace;
   font-size: 1rem;
   height: 100vh;
-  background-image: url("https://www.alura.com.br/assets/img/imersoes/dev-2021/tabela-classificacao-bg.png");
-  background-color: #111;
+  background-image: url("./img/background.webp");
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
+  overflow-y: hidden;
 }
-
 
 h1 {
   color: white;
   text-align: center;
   margin-top: 80px;
+  cursor: default;
 }
-
 
 .container {
   max-width: 1000px;
-  margin: 80px auto;
-  padding: 20px;
+  max-height: 600px;
+  margin: 80px auto 0 auto;
+  padding: 0 20px;
   display: grid;
-  overflow-x: auto;
+  overflow-y: auto;
 }
-
 
 table {
   border: 2px solid white;
   border-collapse: collapse;
   text-align: center;
+  width: 100%;
 }
 
 th,
@@ -42,11 +41,17 @@ td {
   font-size: 1.25rem;
 }
 
+thead {
+  position: sticky;
+  top: -21px;
+}
+
 thead th {
   background-color: #002351;
   font-size: 1.5rem;
+  position: sticky;
+  box-shadow: inset 0 2px 0 white, inset 0 -2px 0 white;
 }
-
 
 button {
   display: inline;
@@ -63,16 +68,12 @@ button {
   background-color: #002351;
 }
 
-.tabela-comandos {
-  margin-top: 8px;
-  display: grid;
-  grid-template-columns: max-content max-content max-content;
-  justify-content: end;
-  gap: 8px;
-}
-
 .botao-tabela:hover {
   background-color: #004299;
+}
+
+.botao-tabela:active {
+  background-color: #002351;
 }
 
 .icon {
@@ -85,6 +86,16 @@ button {
 .botao-excluir {
   background-image: url("./img/lixeira.svg");
   background-repeat: no-repeat;
+}
+
+.tabela-comandos {
+  margin-top: 8px;
+  max-width: 1000px;
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  justify-content: end;
+  gap: 8px;
 }
 
 .botao-global {
@@ -100,13 +111,16 @@ button {
   border-color: #0056c7;
 }
 
+.botao-global:active {
+  background-color: #d1d1d1;
+}
+
 .novo-jogador {
   grid-column: 1/-1;
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 10px;
   justify-self: right;
-  align-items: center;
 }
 
 .novo-jogador label {
@@ -121,15 +135,19 @@ button {
   text-align: center;
 }
 
-.botao-ok {
+.botao-confirmar {
   background-image: url("./img/seta.png");
   background-repeat: no-repeat;
   width: 30px;
   height: 30px;
-
 }
 
-.escondido {
+.botao-confirmar:hover {
+  width: 31px;
+  transition: .2s;
+}
+
+.oculto {
   display: none
 }
 
@@ -146,7 +164,13 @@ button {
 @media (max-width:900px) {
 
   .container {
-    padding: 10px 2px;
+    padding: 6px 2px;
+  }
+
+  table,
+  .tabela-comandos {
+    max-width: 500px;
+    margin: 0 auto;
   }
 
   th,
@@ -154,6 +178,10 @@ button {
   td {
     padding: 4px 3px;
     font-size: 0.75rem;
+  }
+
+  thead {
+    top: -11px;
   }
 
   thead th {
@@ -165,5 +193,33 @@ button {
   button {
     font-size: 0.75rem;
     padding: 10px 4px;
+  }
+
+  .tabela-comandos {
+    gap: 4px;
+  }
+
+  .botao-global {
+    border-width: 2px;
+    padding: 8px 4px;
+  }
+
+  .novo-jogador {
+    gap: 2px;
+  }
+
+  .novo-jogador label {
+    font-size: 1.2rem;
+  }
+
+  .input-jogador {
+    width: 190px;
+    height: 20px;
+    font-size: 1rem;
+  }
+
+  .botao-confirmar {
+    width: 25px;
+    height: 25px;
   }
 }

@@ -27,19 +27,21 @@
         </thead>
         <tbody id="tabela-jogadores"> </tbody>
       </table>
-      <div class="tabela-comandos">
-        <button class="botao-global" id="botao-novo-jogador"> Novo Jogador</button>
-        <button class="botao-global" id="botao-zerar"> Zerar Pontos</button>
-        <button class="botao-global" id="botao-redefinir"> Redefinir Tabela</button>
-        <div class="novo-jogador escondido">
-          <div>
-            <label for="nome">Nome:</label>
-            <input class="input-jogador" type="text" id="nome" name="nome" onkeydown="teclaEnter(event)" placeholder="Digite o nome do jogador">
-          </div>
-          <button class="icon botao-ok" title="Enviar"></button>
-          <span class="mensagem-erro"></span>
+    </div>
+    <div class="tabela-comandos">
+      <button class="botao-global" id="botao-novo-jogador"> Novo Jogador</button>
+      <button class="botao-global" id="botao-zerar"> Zerar Pontos</button>
+      <button class="botao-global" id="botao-redefinir"> Redefinir Tabela</button>
+      <div class="novo-jogador escondido">
+        <div>
+          <label for="nome">Nome:</label>
+          <input class="input-jogador" type="text" id="nome" name="nome" onkeydown="teclaEnter(event)" placeholder="Digite o nome do jogador">
         </div>
+        <button class="icon botao-confirmar" title="Enviar"></button>
+        <span class="mensagem-erro"></span>
       </div>
+    </div>
+
     </div>
     <script src="./script.js"></script>
   </main>

@@ -1,5 +1,5 @@
 const botaoNovoJogador = document.getElementById("botao-novo-jogador");
-const submitNovoJogador = document.querySelector(".novo-jogador button");
+const submitNovoJogador = document.querySelector(".botao-confirmar");
 const botaoZerar = document.getElementById("botao-zerar");
 const botaoRedefinir = document.getElementById("botao-redefinir");
 const tabelaJogadores = document.getElementById("tabela-jogadores");
@@ -20,9 +20,9 @@ function atualizarTabela() {
   <td>${listaJogadores[i].empates}</td>
   <td>${listaJogadores[i].derrotas}</td>
   <td>${listaJogadores[i].pontos}</td>
-  <td><button class="botao-tabela" id="botao-vitoria" onClick="adicionarVitoria(${i})">Vitória</button></td>
-  <td><button class="botao-tabela" id="botao-empate" onClick="adicionarEmpate(${i})">Empate</button></td>
-  <td><button class="botao-tabela" id="botao-derrota" onClick="adicionarDerrota(${i})">Derrota</button></td>
+  <td><button class="botao-tabela" onClick="adicionarVitoria(${i})">Vitória</button></td>
+  <td><button class="botao-tabela" onClick="adicionarEmpate(${i})">Empate</button></td>
+  <td><button class="botao-tabela" onClick="adicionarDerrota(${i})">Derrota</button></td>
   <td><button class="icon botao-excluir" title="enviar" onClick="excluirJogador(${i})"></button></td>
   </tr>
     `;
@@ -59,7 +59,7 @@ function excluirJogador(index) {
 // toggle para o campo de input
 function esconder() {
   const inputNovoJogador = document.querySelector(".novo-jogador");
-  inputNovoJogador.classList.toggle("escondido");
+  inputNovoJogador.classList.toggle("oculto");
 }
 
 function inserirJogador() {
